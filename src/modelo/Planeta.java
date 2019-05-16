@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Planeta {
 	private String nome; 
-	private int per_rotacao;
+	private double per_rotacao;
 	private double vel_orbital;
 	private double massa;
 	private double temperatura;
 	private double gravidade;
-	private ArrayList<Satelite> satelites = new ArrayList<>();
+	private ArrayList<Satelite> satelites = new ArrayList<Satelite>();
 	
-	public Planeta(String nome, int per_rotacao, double vel_orbital, double massa, double temperatura, double gravidade) {
+	public Planeta(String nome, double per_rotacao, double vel_orbital, double massa, double temperatura, double gravidade) {
 		this.nome = nome;
 		this.per_rotacao = per_rotacao;
 		this.vel_orbital = vel_orbital;
@@ -28,11 +28,11 @@ public class Planeta {
 		this.nome = nome;
 	}
 
-	public int getPer_rotacao() {
+	public double getPer_rotacao() {
 		return per_rotacao;
 	}
 
-	public void setPer_rotacao(int per_rotacao) {
+	public void setPer_rotacao(double per_rotacao) {
 		this.per_rotacao = per_rotacao;
 	}
 
@@ -73,12 +73,25 @@ public class Planeta {
 	}
 
 
+
 	@Override
 	public String toString() {
-		return "Planeta \nNome: " + nome + "\nPeríodo de Rotação: " + per_rotacao + "h\nVelocidade Orbital: " + vel_orbital + "km/h\nMassa: "
-				+ massa + "kg\nTemperatura: " + temperatura + "°C\nGravidade: " + gravidade + "m/s²\nLuas: " + satelites;
+//        String results = "+";
+//        for (int i = 0; i < this.satelites.size(); i++) {
+//            results += " " + this.satelites.get(i);
+//        }
+//        return results;
+		return "\nNome:" + nome + "\nPeriodo de Rotacao (horas/minutos):" + per_rotacao + "\nVelocidade Orbital (km/s):" + vel_orbital + "\n Massa:"
+				+ massa + "\n Temperatura=" + temperatura + "\nGravidade=" + gravidade;
 	}
-	/*------------------------------------------------------------------------------------------------------NOSSAS FUNÇÕES------------------------------------------------------------------------------------------------------*/
+	
+	public String satzada(ArrayList<Satelite> s) {
+        String results = "+";
+        for (int i = 0; i < this.satelites.size(); i++) {
+            results += " " + this.satelites.get(i);
+        }
+        return results;
+	}
 	public void adicionarSatelite(Satelite s) {
 		s.setPlaneta(this);
 		this.satelites.add(s);
