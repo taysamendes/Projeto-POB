@@ -130,10 +130,6 @@ public class Cadastrar {
 	}
 
 
-	public void cadastrar(){
-
-	}   
-
 
 	//=================================================
 	public static void main(String[] args) {
