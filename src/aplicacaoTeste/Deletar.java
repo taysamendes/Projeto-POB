@@ -7,12 +7,14 @@ public class Deletar {
 		Fachada.inicializar();
 		
 		try {
-            System.out.println("deletando...");
-//			Fachada.excluirPlaneta("Terra");
-			Fachada.excluirAstronomo("Taysa");
-			Fachada.excluirSatelite("Lua");
-			Fachada.listarPlanetas();
+			System.out.println("deletando...");
 			
+			Fachada.excluirPlaneta("Terra");
+			Fachada.excluirAstronomo("Sheppard");
+			Fachada.excluirSatelite("Lua");
+			Fachada.excluirSateliteAstronomo("Umbriel", "Lassell");
+			Fachada.excluirSatelitePlaneta("Urano", "Umbriel");
+
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
