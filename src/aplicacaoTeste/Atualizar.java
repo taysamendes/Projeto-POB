@@ -1,21 +1,36 @@
 package aplicacaoTeste;
 
 import fachada.Fachada;
+import modelo.Planeta;
+import modelo.Astronomo;
+import modelo.Satelite;
 
 
 public class Atualizar {
 	public Atualizar(){
 		Fachada.inicializar();
+		Planeta p;
+		Astronomo a;
+		Satelite s;
 
 		try {
-			System.out.println("alterando...");
-			System.out.println("Digite o nome do planeta, a opcao e a alteracao que deseja fazer");
-			System.out.println("1 --- Alterar Nome\n2 --- Alterar Periodo de rotacao\n3 --- Alterar Velocidade\n");
-			Fachada.atualizarPlaneta("Terra plana","Terra");
+
+			p = Fachada.readPlaneta("Marte");
+			p.setNome("Planeta Vermelho");
+			Fachada.atualizarPlaneta(p);
 			
+			a = Fachada.readAstronomo("Galileu");
+			a.setNome("Galileu Galilei");
+			Fachada.atualizarAstronomo(a);
+
+			s = Fachada.readSatelite("Lua");
+			s.setNome("Lua da Terra");
+			Fachada.atualizarSatelite(s);
+
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 		Fachada.finalizar();
 		System.out.println("Fim do programa.");
 	}

@@ -2,16 +2,12 @@ package aplicacaoTeste;
 
 
 import fachada.Fachada;
-import modelo.Planeta;
-import modelo.Astronomo;
-import modelo.Satelite;
-
 
 public class Cadastrar {
 
 	public Cadastrar(){
 		Fachada.inicializar();
-
+	
 		try {
 
 			System.out.println("Cadastrando...");
@@ -47,7 +43,7 @@ public class Cadastrar {
 			   Fachada.cadastrarSatelite("Reia", 764.5, 4.518, 1672);
 			   Fachada.cadastrarSatelite("Ariel", 578.9, 2.520, 1851);
 			   Fachada.cadastrarSatelite("Umbriel", 584.7, 4.144, 1851);
-			   Fachada.cadastrarSatelite("Titânia", 788.9, 8.706, 1787);
+			   Fachada.cadastrarSatelite("Titania", 788.9, 8.706, 1787);
 			   Fachada.cadastrarSatelite("Deimos", 6.2, 1.262, 1877);
 			   Fachada.cadastrarSatelite("Nereida", 170, 360.14, 1949);
 			   Fachada.cadastrarSatelite("Caronte", 603.6, 6.387, 1978);
@@ -96,8 +92,6 @@ public class Cadastrar {
 		Fachada.finalizar();
 		System.out.println("fim do programa");
 	}
-
-
 
 	//=================================================
 	public static void main(String[] args) {
