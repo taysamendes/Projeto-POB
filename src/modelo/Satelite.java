@@ -83,7 +83,9 @@ public class Satelite {
 
 	@Override
 	public String toString() {
-		return "Satelite [nome=" + nome + ", raio=" + raio + ", per_orbital=" + per_orbital + ", ano_descoberta="
-				+ ano_descoberta + ", planeta=" + planeta + ", astronomos=" + astronomos + "]";
+		return "\nNome: " + nome + "\nRaio: " + raio + "\nPeriodo Orbital (dias): " + per_orbital + "\n Ano descoberta: "
+				+ ano_descoberta + "\nPlaneta: " + planeta + "\nAstronomo(s):";
 	}
+
+
 }
