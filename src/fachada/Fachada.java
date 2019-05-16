@@ -91,7 +91,8 @@ public class Fachada {
 		}
 		return texto;
 	}
-		/*--------- RELACIONAMENTOS ----------*/
+	
+	/*--------- RELACIONAMENTOS ----------*/
 
 	public static void adicionarSatelitePlaneta(String planeta, String satelite) throws Exception {
 		DAO.begin();
@@ -170,40 +171,40 @@ public class Fachada {
 	public static Planeta readPlaneta(String nome) throws Exception {
 		Planeta pla = daoplaneta.read(nome);
 		if(pla == null)
-				throw new Exception("Pessoa n�o encontrada");
+				throw new Exception("Planeta nao encontrado");
 		return pla;
+	}
+
+	public static Astronomo readAstronomo(String nome) throws Exception {
+		Astronomo ast = daoastronomo.read(nome);
+		if(ast == null)
+				throw new Exception("Astronomo nao encontrado");
+		return ast;
+	}
+
+	public static Satelite readSatelite(String nome) throws Exception {
+		Satelite sat = daosatelite.read(nome);
+		if(sat == null)
+				throw new Exception("Satelite nao encontrado");
+		return sat;
 	}
 
     public static void atualizarPlaneta(Planeta p) throws Exception{
         DAO.begin();                   
         p=daoplaneta.update(p);      
         DAO.commit();   
-    }
- 
-    public static void atualizarSatelite(String nome, String novonome) throws Exception{
-        DAO.begin();        
-        Satelite s = daosatelite.read(nome);    
-        if (s==null)
-            throw new Exception("alterar satelite - nome inexistente:" + nome);
- 
-        s.setNome(novonome);            
+	}
+	public static void atualizarAstronomo(Astronomo a) throws Exception{
+        DAO.begin();                   
+        a=daoastronomo.update(a);      
+        DAO.commit();   
+	}
+	public static void atualizarSatelite(Satelite s) throws Exception{
+        DAO.begin();                   
         s=daosatelite.update(s);      
         DAO.commit();   
     }
- 
 
-
-    public static void atualizarAstronomo(String nome, String novonome) throws Exception{
-        DAO.begin();        
-        Astronomo a = daoastronomo.read(nome);    
-        if (a==null)
-            throw new Exception("alterar astronomo - nome inexistente:" + nome);
- 
-        a.setNome(novonome);            
-        a=daoastronomo.update(a);      
-        DAO.commit();   
-    }
-	
 	/*--------- REMOÇÕES ----------*/
 
     public static void excluirPlaneta(String nome) throws Exception {
@@ -241,7 +242,7 @@ public class Fachada {
 	public static String consultarPlanetasPorParteNome(String nome) {
 	    List<Planeta> result = daoplaneta.consultarPlanetasPorParteNome(nome);
 	
-	    String texto = "\nConsultar planetas por parte do nome:"+nome;
+	    String texto = "\nConsultar pessoas por parte do nome:"+nome;
 	    if (result.isEmpty())  
 	        texto += "consulta vazia";
 	    else
