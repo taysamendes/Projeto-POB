@@ -242,7 +242,7 @@ public class Fachada {
 	public static String consultarPlanetasPorParteNome(String nome) {
 	    List<Planeta> result = daoplaneta.consultarPlanetasPorParteNome(nome);
 	
-	    String texto = "\nConsultar pessoas por parte do nome:"+nome;
+	    String texto = "\nConsultar planetas por parte do nome:"+nome;
 	    if (result.isEmpty())  
 	        texto += "consulta vazia";
 	    else
