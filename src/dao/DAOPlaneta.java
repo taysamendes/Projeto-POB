@@ -28,17 +28,4 @@ public class DAOPlaneta  extends DAO<Planeta>{
 	    List<Planeta> result = q.execute(); 
 	    return result;
 	}
-	
-	//Digita o nome do satelite e retorna o planeta ao qual ele pertence
-	public Planeta consultarPlanetaPorSatelite(String nome){
-	    Query q = manager.query();
-	    q.constrain(Planeta.class);
-	    q.descend("satelites").descend("nome").constrain(nome);
-	    List<Planeta> resultados = q.execute();
-	    if(resultados.size()==0)
-	        return null;
-	    else
-	        return resultados.get(0);
-	
-	}
 }
