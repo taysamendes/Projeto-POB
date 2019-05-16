@@ -7,10 +7,10 @@ public class Listar {
 		Fachada.inicializar();
 		
 		try {
-			System.out.println(Fachada.listarPlanetas());
-			System.out.println(Fachada.listarSatelites());
+			//System.out.println(Fachada.listarPlanetas());
+			//System.out.println(Fachada.listarSatelites());
 			System.out.println(Fachada.listarAstronomos());
-			
+		
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -81,8 +81,8 @@ public class Planeta {
 //            results += " " + this.satelites.get(i);
 //        }
 //        return results;
-		return "\nNome:" + nome + "\nPeriodo de Rotacao (horas/minutos):" + per_rotacao + "\nVelocidade Orbital (km/s):" + vel_orbital + "\n Massa:"
-				+ massa + "\n Temperatura=" + temperatura + "\nGravidade=" + gravidade;
+		return "\nNome: " + nome + "\nPeriodo de Rotacao (horas/minutos): " + per_rotacao + "\nVelocidade Orbital (km/s): " + vel_orbital + "\nMassa: "
+				+ massa + "\nTemperatura: " + temperatura + " °C \nGravidade: " + gravidade;
 	}
 	
 	public String satzada(ArrayList<Satelite> s) {

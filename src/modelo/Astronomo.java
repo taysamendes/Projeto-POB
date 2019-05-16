@@ -43,11 +43,10 @@ public class Astronomo {
 
 	@Override
 	public String toString() {
-		return "Astronomo \nNome: " + nome + "\nNacionalidade: " + nacionalidade + "\nData de Nascimento: " + nascimento
-				+ "\nSatelites: " + satelites;
+		return "\nNome: " + nome + "\nNacionalidade: " + nacionalidade + "\nData de Nascimento: " + nascimento;
 	}
 
-	/*-------NOSSAS FUNÇÕES-----------*/
+	/*-------NOSSAS FUNCOES-----------*/
 	
 	public void adicionarSatelite(Satelite s) {
 		s.adicionarAstronomo(this);

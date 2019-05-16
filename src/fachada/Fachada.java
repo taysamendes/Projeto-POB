@@ -104,8 +104,8 @@ public class Fachada {
 			throw new Exception("adicionar satelite - satelite nao cadastrado: " + satelite);
 
 		p.adicionarSatelite(s);
-		s.adicionarPlaneta(p);
 		daoplaneta.update(p);
+		s.adicionarPlaneta(p);
 		daosatelite.update(s);
 		DAO.commit();
 	}
@@ -121,8 +121,8 @@ public class Fachada {
 			throw new Exception("adicionar astronomo - astronomo nao cadastrado: " + astronomo);
 
 		a.adicionarSatelite(s);
-		s.adicionarAstronomo(a);
 		daoastronomo.update(a);
+		s.adicionarAstronomo(a);
 		daosatelite.update(s);
 		DAO.commit();
 	}

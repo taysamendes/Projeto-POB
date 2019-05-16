@@ -80,11 +80,12 @@ public class Satelite {
 	public void setAstronomos(ArrayList<Astronomo> astronomos) {
 		this.astronomos = astronomos;
 	}
+	
 
 	@Override
 	public String toString() {
-		return "\nNome: " + nome + "\nRaio: " + raio + "\nPeriodo Orbital (dias): " + per_orbital + "\n Ano descoberta: "
-				+ ano_descoberta + "\nPlaneta: " + planeta + "\nAstronomo(s):";
+		return "\nNome: " + nome + "\nRaio: " + raio + "\nPeriodo Orbital (dias): " + per_orbital + "\nAno descoberta: "
+				+ ano_descoberta + "\nPlaneta: " + planeta.getNome();
 	}
 
 
