@@ -2,6 +2,8 @@ package fachada;
 
 import java.util.List;
 
+import com.db4o.query.Query;
+
 import dao.DAO;
 import dao.DAOAstronomo;
 import dao.DAOPlaneta;
@@ -248,10 +250,32 @@ public class Fachada {
 	    return texto;
 	}
 	
+	public Planeta consultarPlanetaPorSatelite(String nome){
+		Query q = manager.query();
+	    q.constrain(Planeta.class);
+	    q.descend("satelites").descend("nome").constrain(nome);
+	    List<Planeta> resultados = q.execute();
+	    if(resultados.size()==0)
+	        return null;
+	    else
+	        return resultados.get(0);
 	
+	}
 	
-	
-	
+	public static String descobertaMaisAntigaDoAstronomo(String nome) {
+		Astronomo astro = daoastronomo.read(nome);
+		int maisvelho = 9999;
+		Satelite sat = null;
+		for (Satelite s : astro.getSatelites()) {
+			if (s.getAno_descoberta() < maisvelho){
+				maisvelho = s.getAno_descoberta();
+				sat = s;
+			}
+		}
+		return "O satelite mais velho é: " + sat.getNome() + " descoberto no ano de  " + Integer.toString(sat.getAno_descoberta()) 
+		+ " do planeta " + sat.getPlaneta().getNome();
+	}
+		
 }
 	
 
