@@ -2,8 +2,6 @@ package fachada;
 
 import java.util.List;
 
-import com.db4o.query.Query;
-
 import dao.DAO;
 import dao.DAOAstronomo;
 import dao.DAOPlaneta;
@@ -27,7 +25,7 @@ public class Fachada {
 
 	/*--------- CADASTROS ----------*/
 
-	public static Planeta cadastrarPlaneta(String nome, int per_rotacao, double vel_orbital, double massa,
+	public static Planeta cadastrarPlaneta(String nome, double per_rotacao, double vel_orbital, double massa,
 			double temperatura, double gravidade) throws Exception {
 		DAO.begin();
 		Planeta p = daoplaneta.read(nome);
@@ -169,14 +167,15 @@ public class Fachada {
 	}
 	
 	/*--------- UPDATES ----------*/
+	public static Planeta readPlaneta(String nome) throws Exception {
+		Planeta pla = daoplaneta.read(nome);
+		if(pla == null)
+				throw new Exception("Pessoa n�o encontrada");
+		return pla;
+	}
 
-    public static void atualizarPlaneta(String nome, String novonome) throws Exception{
-        DAO.begin();        
-        Planeta p = daoplaneta.read(nome);    
-        if (p==null)
-            throw new Exception("alterar planeta - nome inexistente:" + nome);
- 
-        p.setNome(novonome);            
+    public static void atualizarPlaneta(Planeta p) throws Exception{
+        DAO.begin();                   
         p=daoplaneta.update(p);      
         DAO.commit();   
     }
@@ -250,18 +249,6 @@ public class Fachada {
 	    return texto;
 	}
 	
-	public Planeta consultarPlanetaPorSatelite(String nome){
-		Query q = manager.query();
-	    q.constrain(Planeta.class);
-	    q.descend("satelites").descend("nome").constrain(nome);
-	    List<Planeta> resultados = q.execute();
-	    if(resultados.size()==0)
-	        return null;
-	    else
-	        return resultados.get(0);
-	
-	}
-	
 	public static String descobertaMaisAntigaDoAstronomo(String nome) {
 		Astronomo astro = daoastronomo.read(nome);
 		int maisvelho = 9999;
@@ -272,10 +259,14 @@ public class Fachada {
 				sat = s;
 			}
 		}
-		return "O satelite mais velho é: " + sat.getNome() + " descoberto no ano de  " + Integer.toString(sat.getAno_descoberta()) 
+		return "O satelite mais velho : " + sat.getNome() + " descoberto no ano de  " + Integer.toString(sat.getAno_descoberta()) 
 		+ " do planeta " + sat.getPlaneta().getNome();
 	}
-		
+	
+	
+	
+	
+	
 }
 	
 
