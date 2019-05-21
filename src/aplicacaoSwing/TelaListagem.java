@@ -39,7 +39,7 @@ public class TelaListagem extends JFrame {
 		setTitle("Listar");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 550, 211);
+		setBounds(100, 100, 555, 311);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,12 +57,12 @@ public class TelaListagem extends JFrame {
 				}
 			}
 		});
-		btnCriar.setBounds(86, 149, 115, 23);
+		btnCriar.setBounds(173, 248, 190, 23);
 		contentPane.add(btnCriar);
 
 		textArea = new JTextArea();
 		JScrollPane scroll = new JScrollPane(textArea);
-		scroll.setBounds(24, 29, 510, 109);
+		scroll.setBounds(25, 29, 503, 208);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		contentPane.add(scroll);

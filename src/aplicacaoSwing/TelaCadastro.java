@@ -2,8 +2,6 @@ package aplicacaoSwing;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -54,11 +52,11 @@ public class TelaCadastro {
 	private void initialize() {
 		frmCadastro = new JFrame();
 		frmCadastro.setTitle("Cadastro");
-		frmCadastro.setBounds(100, 100, 250, 250);
+		frmCadastro.setBounds(100, 100, 334, 232);
 		frmCadastro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCadastro.getContentPane().setLayout(null);
 		
-		lbl_nome = new JLabel("nome:");
+		lbl_nome = new JLabel("Nome:");
 		lbl_nome.setBounds(10, 11, 46, 14);
 		frmCadastro.getContentPane().add(lbl_nome);
 		
@@ -67,12 +65,12 @@ public class TelaCadastro {
 		frmCadastro.getContentPane().add(label2);
 		
 		textField_nome = new JTextField();
-		textField_nome.setBounds(106, 8, 86, 20);
+		textField_nome.setBounds(106, 8, 177, 20);
 		frmCadastro.getContentPane().add(textField_nome);
 		textField_nome.setColumns(10);
 		
 		textField_nacio = new JTextField();
-		textField_nacio.setBounds(106, 33, 86, 20);
+		textField_nacio.setBounds(106, 33, 177, 20);
 		frmCadastro.getContentPane().add(textField_nacio);
 		textField_nacio.setColumns(10);
 		
@@ -95,22 +93,22 @@ public class TelaCadastro {
 				}
 			}
 		});
-		btnCadastrarAstronomo.setBounds(51, 116, 145, 23);
+		btnCadastrarAstronomo.setBounds(48, 100, 220, 23);
 		frmCadastro.getContentPane().add(btnCadastrarAstronomo);
 		
 		model = new DefaultListModel<String>() ;
 		
-		JLabel lbl_nacional = new JLabel("nacionalidade");
-		lbl_nacional.setBounds(10, 36, 65, 14);
+		JLabel lbl_nacional = new JLabel("Nacionalidade");
+		lbl_nacional.setBounds(10, 36, 98, 14);
 		frmCadastro.getContentPane().add(lbl_nacional);
 		
 		lbl_nascimento = new JLabel("Nascimento");
-		lbl_nascimento.setBounds(10, 61, 65, 14);
+		lbl_nascimento.setBounds(10, 61, 98, 14);
 		frmCadastro.getContentPane().add(lbl_nascimento);
 		
 		textField_nasc = new JTextField();
 		textField_nasc.setColumns(10);
-		textField_nasc.setBounds(106, 58, 86, 20);
+		textField_nasc.setBounds(106, 58, 177, 20);
 		frmCadastro.getContentPane().add(textField_nasc);
 		
 		//mostrar a janela

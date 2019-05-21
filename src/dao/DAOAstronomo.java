@@ -1,6 +1,8 @@
 package dao;
 import java.util.List;
+
 import com.db4o.query.Query;
+
 import modelo.Astronomo;
 
 public class DAOAstronomo extends DAO<Astronomo> {
@@ -28,8 +30,7 @@ public class DAOAstronomo extends DAO<Astronomo> {
 	    q.constrain(Astronomo.class);
 	    q.descend("nome").constrain(caracteres).like();
 	    List<Astronomo> result = q.execute(); 
-	    return result;
+	    	return result;
 	}
-
 
 }

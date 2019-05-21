@@ -251,37 +251,45 @@ public class Fachada {
 	}
 	
 	public static String descobertaMaisAntigaDoAstronomo(String nome) {
-		Astronomo astro = daoastronomo.read(nome);
+		String result = "";
+		List<Satelite> sat = daosatelite.descobertaMaisAntigaDoAstronomo(nome);
 		int maisvelho = 9999;
-		Satelite sat = null;
-		for (Satelite s : astro.getSatelites()) {
-			if (s.getAno_descoberta() < maisvelho){
+
+		for(Satelite s : sat) {
+			if(s.getAno_descoberta() < maisvelho)
 				maisvelho = s.getAno_descoberta();
-				sat = s;
+		}
+			result += Integer.toString(maisvelho);
+					
+		return "A descoberta mais antiga do astronomo " + nome + " foi no ano de " + result + "\n";
+	}
+	
+	//lista os planetas que tem satelites que foram descobertos pelo astronomo que foi passado como parametro
+	public static String consultarPlanetaAstronomo(String nome){
+		List<Planeta> p = daoplaneta.consultarPlanetaAstronomo(nome);
+		String result = "";
+		
+		for(Planeta pla : p)
+			result += pla.getNome()+"\n";
+		return "Os planetas que possuem satelites que foram descobertos pelo astronomo "+nome+" sao:\n"+ result;
+	}	
+	
+	public static String sateliteMaisAntigo(String nome) {
+		List<Satelite> sat = daosatelite.sateliteMaisAntigo(nome);
+		int maisvelho = 9999;
+		Satelite satelitevelho = null;
+		
+		for(Satelite s : sat) {
+			if(s.getAno_descoberta() < maisvelho) {
+				maisvelho = s.getAno_descoberta();
+				satelitevelho  = s;
 			}
-		}
-		return "O satelite mais velho : " + sat.getNome() + " descoberto no ano de  " + Integer.toString(sat.getAno_descoberta()) 
-		+ " do planeta " + sat.getPlaneta().getNome();
-	}
-	
-	//lista os planetas que tem satélites que foram descobertos pelo astronomo que foi passado como parametro
-	public List<Planeta> consultarPlanetaAstronomo(String nome){
-		Astronomo astro = daoastronomo.read(nome);
-		List<Planeta>planetas = null;
+		}		
 		
-		for(Satelite s : astro.getSatelites()) //ESTÁ RECEBENDO UMA LISTA DE SATELITES DAQUELE ASTRONOMO?
-		{
-			if(s.getAstronomos().equals(nome))
-				
-				
-		}
-		
+		return "O satelite mais antigo de "+ nome + " � " + satelitevelho.getNome() + " que foi descoberto em "
+					+satelitevelho.getAno_descoberta()+" por "+satelitevelho.getAstronomos().get(0).getNome();	
 		
 	}
-	
-	
-	
-	
 	
 }
 	

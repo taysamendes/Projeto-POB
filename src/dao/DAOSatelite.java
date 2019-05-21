@@ -1,6 +1,7 @@
 package dao;
 import java.util.List;
 import com.db4o.query.Query;
+
 import modelo.Satelite;
 
 public class DAOSatelite  extends DAO<Satelite>{
@@ -16,4 +17,25 @@ public class DAOSatelite  extends DAO<Satelite>{
 		else
 			return null;
 	}
+	
+
+	public List<Satelite> descobertaMaisAntigaDoAstronomo(String nome) {
+
+		Query q = manager.query();
+		q.constrain(Satelite.class);
+		q.descend("planeta").descend("satelites").descend("astronomos").descend("nome").constrain(nome);
+	    List<Satelite> result = q.execute(); 
+	    	return result;
+	}
+	
+	//O SATELITE MAIS ANTIGO DE UM DADO PLANETA E O NOME DO ASTRONOMO
+	public List<Satelite> sateliteMaisAntigo(String nome) {
+
+		Query q = manager.query();
+		q.constrain(Satelite.class);
+		q.descend("astronomos").descend("satelites").descend("planeta").descend("nome").constrain(nome);
+	    List<Satelite> result = q.execute(); 
+	    	return result;
+	}
+	
 }
