@@ -264,6 +264,21 @@ public class Fachada {
 		+ " do planeta " + sat.getPlaneta().getNome();
 	}
 	
+	//lista os planetas que tem satélites que foram descobertos pelo astronomo que foi passado como parametro
+	public List<Planeta> consultarPlanetaAstronomo(String nome){
+		Astronomo astro = daoastronomo.read(nome);
+		List<Planeta>planetas = null;
+		
+		for(Satelite s : astro.getSatelites()) //ESTÁ RECEBENDO UMA LISTA DE SATELITES DAQUELE ASTRONOMO?
+		{
+			if(s.getAstronomos().equals(nome))
+				
+				
+		}
+		
+		
+	}
+	
 	
 	
 	

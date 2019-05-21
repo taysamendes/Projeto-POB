@@ -28,4 +28,13 @@ public class DAOPlaneta  extends DAO<Planeta>{
 	    List<Planeta> result = q.execute(); 
 	    return result;
 	}
+	
+	//lista os planetas que tem satélites que foram descobertos pelo astronomo que foi passado como parametro
+	public List<Planeta> consultarPlanetaAstronomo(String nome){
+		Query q = manager.query();
+		q.constrain(Planeta.class);
+		q.descend("satelites").descend("astronomos").descend("nome").constrain(nome);
+		List<Planeta> result = q.execute();
+		return result;
+	}
 }
