@@ -24,6 +24,8 @@ public class DAOSatelite  extends DAO<Satelite>{
 		Query q = manager.query();
 		q.constrain(Satelite.class);
 		q.descend("planeta").descend("satelites").descend("astronomos").descend("nome").constrain(nome);
+		q.descend("ano_descoberta").orderAscending();
+		
 	    List<Satelite> result = q.execute(); 
 	    	return result;
 	}

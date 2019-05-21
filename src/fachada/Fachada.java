@@ -213,6 +213,11 @@ public class Fachada {
         if (p==null) 
             throw new Exception("excluir planeta - nome inexistente:" + nome);
  
+        for(Satelite s : p.getSatelites()) {
+        	s.setPlaneta(null);
+        	daosatelite.update(s);
+        }
+        	
         daoplaneta.delete(p);
         DAO.commit();
     }

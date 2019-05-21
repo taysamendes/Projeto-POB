@@ -36,7 +36,7 @@ public class Cadastrar {
 	           Fachada.cadastrarSatelite("Fobos", 11.1, 0.319, 1877);
 			   Fachada.cadastrarSatelite("Deimos", 6.2, 1.262, 1877);
 			   Fachada.cadastrarSatelite("Io", 1818.1, 1.769, 1610);
-			   Fachada.cadastrarSatelite("Europa", 1560.7, 3.551, 1610);
+			   Fachada.cadastrarSatelite("Europa", 1560.7, 3.551, 1619);
 			   Fachada.cadastrarSatelite("Ganimedes", 2634.1, 7.155, 1610);
 			   Fachada.cadastrarSatelite("Calisto", 2408.4, 16.69, 1610);
 			   Fachada.cadastrarSatelite("Amalteia", 83.45, 0.498, 1892);

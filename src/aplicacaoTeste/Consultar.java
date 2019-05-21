@@ -10,7 +10,7 @@ public class Consultar {
 		try {
 			
 		System.out.println("\n\nDescoberta mais antiga de um Astronomo:");	
-		System.out.println(Fachada.descobertaMaisAntigaDoAstronomo("Hall"));	
+		System.out.println(Fachada.descobertaMaisAntigaDoAstronomo("Galileu"));	
 		System.out.println("------------------------------------------------");
 		System.out.println("Planetas que possuem satélites que foram descobertos por um Astronomo: ");
 		System.out.println(Fachada.consultarPlanetaAstronomo("Lassell"));
@@ -18,7 +18,7 @@ public class Consultar {
 		System.out.println("Satelite mais antigo de um planeta e quem o descobriu");
 		System.out.println(Fachada.sateliteMaisAntigo("Jupiter"));
 		System.out.println("------------------------------------------------");
-		System.out.println(Fachada.consultarPlanetasPorParteNome("te"));
+//		System.out.println(Fachada.consultarPlanetasPorParteNome("te"));
 		
 		
 

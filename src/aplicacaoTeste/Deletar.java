@@ -10,9 +10,8 @@ public class Deletar {
 			System.out.println("deletando...");
 			
 			Fachada.excluirPlaneta("Terra");
-			Fachada.excluirAstronomo("Sheppard");
-			Fachada.excluirSatelite("Lua");
-			Fachada.excluirSateliteAstronomo("Lassell","Umbriel");
+//			Fachada.excluirAstronomo("Sheppard");
+	//		Fachada.excluirSatelite("Lua");
 
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
