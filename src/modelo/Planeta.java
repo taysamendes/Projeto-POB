@@ -2,6 +2,10 @@ package modelo;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
 public class Planeta {
 	private String nome; 
 	private double per_rotacao;
@@ -9,7 +13,11 @@ public class Planeta {
 	private double massa;
 	private double temperatura;
 	private double gravidade;
+	
+	@OneToMany(mappedBy="planeta", cascade=CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
 	private ArrayList<Satelite> satelites = new ArrayList<Satelite>();
+	
+	public Planeta() {};
 	
 	public Planeta(String nome, double per_rotacao, double vel_orbital, double massa, double temperatura, double gravidade) {
 		this.nome = nome;

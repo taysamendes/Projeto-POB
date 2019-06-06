@@ -2,13 +2,21 @@ package modelo;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+
 public class Satelite {
 	private String nome;
 	private double raio;
 	private double per_orbital;
 	private int ano_descoberta;
 	private Planeta planeta;
+	
+	@ManyToMany(mappedBy="satelites", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private ArrayList<Astronomo> astronomos = new ArrayList<>();
+	
+	public Satelite() {};
 	
 	public Satelite(String nome, double raio, double per_orbital, int ano_descoberta) {
 		super();

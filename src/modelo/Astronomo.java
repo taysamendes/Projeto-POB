@@ -1,11 +1,26 @@
 package modelo;
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
 public class Astronomo {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	private String nome;
 	private String nacionalidade;
 	private String nascimento;
+	
+	@ManyToMany
 	private ArrayList<Satelite> satelites = new ArrayList<>();
+	
+	public Astronomo() {};
 	
 	public Astronomo(String nome, String nacionalidade, String nascimento) {
 		this.nome = nome;
